@@ -12,5 +12,5 @@ My config for NeoVim :
     - [vim-surround](https://github.com/tpope/vim-surround) **surrounding extension**
 
 Key bindings :
-- " " as <leader>
+- " " as \<leader\> key
 - [**nerdtree**](https://github.com/preservim/nerdtree) proposed *keybindings*
