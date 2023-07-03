@@ -1,10 +1,12 @@
+local packer_repo = 'wbthomason/packer.nvim'
+
 local ensure_packer = function()
     local fn = vim.fn
     local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
     -- Check if packer.nvim is already installed
     if fn.empty(fn.glob(install_path)) > 0 then
         -- Clone packer.nvim repository if not installed
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/' .. packer_repo, install_path })
         -- Load packer.nvim as a plugin
         vim.cmd.packadd('packer.nvim')
         -- Return true to indicate successful installation
@@ -39,24 +41,33 @@ vim.cmd([[
 
 return require('packer').startup(function(use)
     -- Plugin manager itself
-    use 'wbthomason/packer.nvim'
+    use(packer_repo)
 
     -- Colorscheme
     use 'rose-pine/neovim'
 
     -- Syntax Highlighting
-    use 'nvim-treesitter/nvim-treesitter'
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
 
     -- Linter
     use 'dense-analysis/ale'
 
     -- File navigation
-    use 'preservim/nerdtree'
-
+    use {
+        'nvim-telescope/telescope.nvim', branch = '0.1.x',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
     -- GIT
     use 'tpope/vim-fugitive'
+    use 'tpope/vim-rhubarb'
 
-    -- GIT helper
+    -- Line
     use 'itchyny/lightline.vim'
 
     -- Surroundings
