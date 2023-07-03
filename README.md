@@ -6,11 +6,11 @@ My config for NeoVim :
   - [tree_sitter](https://github.com/nvim-treesitter/nvim-treesitter) **syntax highlighting**
   - [ale](https://github.com/dense-analysis/ale) **linter**
   - [telescope](https://github.com/nvim-telescope/telescope.nvim) **fuzzy file navigation**
-  - [fugitive](https://github.com/tpope/vim-fugitive) **git integration**
+  - [fugitive](https://github.com/tpope/vim-fugitive) **git integration** + [rhubarb](https://github.com/tpope/vim-rhubarb) **github integration** 
   - [vimspector](https://github.com/puremourning/vimspector) **debugger**
   - [lightline](https://github.com/itchyny/lightline.vim) **bottom line**
   - [vim-surround](https://github.com/tpope/vim-surround) **surrounding extension**
 
 Key bindings :
 - " " as \<leader\> key
-- [**nerdtree**](https://github.com/preservim/nerdtree) proposed *keybindings*
+- [**telescope**](https://github.com/nvim-telescope/telescope.nvim) proposed *keybindings*
